@@ -1,0 +1,61 @@
+.about_container{
+    @apply py-10 md:py-32 px-3 md:px-64 flex flex-col md:flex-row items-center justify-center bg-[--secondary] gap-10;
+
+    .about_img{
+        width: 50%;
+        height: auto;
+        
+        @media only screen and (max-width: 600px) {
+            width: 100%;
+        }
+
+        Img{
+            @apply rounded-xl;
+        }
+    }
+
+    .main_text{
+        width: 40%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        gap: 15px;
+        padding-bottom: 32px;
+
+        @media only screen and (max-width: 600px) {
+            width: 100%;
+            font-size: 14px;
+        }
+
+        span{
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary);
+
+            @media only screen and (max-width: 600px) {
+                font-size: 1.25rem;
+            }
+        }
+
+        .btn{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 12px 32px;
+            background: var(--accent);
+            color: white;
+            border-radius: 30px;
+            font-weight: 600;
+
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            &:hover{
+                background: var(--hover);
+            }
+        }
+    }
+   
+}

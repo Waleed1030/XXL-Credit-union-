@@ -1,0 +1,29 @@
+.menubtn{
+    background: var(--bg);
+    border-radius: 10px;
+    font-size: 20px;
+    color: var(--accent);
+    height: 50px;
+    width: 60px;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.menu{
+    display: flex;
+    padding: 16px;
+    margin: 5px 0px;
+    border-radius: 10px;
+}
+
+.active{
+    background-color: var(--accent);
+    color: white;
+}
+
+.menuItems{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:20px
+}

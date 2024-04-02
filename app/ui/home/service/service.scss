@@ -1,0 +1,62 @@
+.first_container{
+    @apply w-full flex flex-col md:flex-row px-3 md:px-64 py-10 md:py-32 justify-center items-center gap-10 md:gap-32 bg-[--bgSoft];
+
+
+    .img{
+        @apply w-full md:w-[45%] h-full;
+    }
+    .text_column{
+        @apply w-full md:w-[45%] flex flex-col items-center md:items-start justify-center gap-5 text-center text-[14px] md:text-[16px];
+
+        span{
+            @apply text-[1.5rem] md:text-[2.5rem] font-bold text-[--primary];
+        }
+
+        .list{
+            @apply grid grid-cols-2 w-full gap-3  md:gap-6 my-5 text-[12px] md:text-[16px]; 
+
+            .item{
+                @apply flex items-start gap-2 text-left w-full;
+
+                svg{
+                    @apply text-[--accent] flex-shrink-0 text-[16px];
+                }
+            }
+        }
+    }
+}
+
+
+.second_container{
+    @apply w-full flex flex-col md:flex-row px-3 md:px-64 py-10 md:py-32  justify-center items-center gap-10 md:gap-32 bg-[--bg];
+
+
+    .img{
+        @apply w-full md:w-[45%] h-full rounded-xl ;
+    }
+    .text_column{
+        @apply w-full md:w-[45%] flex flex-col items-start justify-center gap-5 text-[14px] md:text-[16px];
+
+        span{
+            @apply text-[1.5rem] md:text-[2.5rem] font-bold text-[--primary];
+        }
+
+    }
+}
+
+.third_container{
+    @apply w-full flex flex-col md:flex-row px-3 md:px-64 py-10 md:py-32  justify-center items-center gap-10 md:gap-32 bg-[--bgSoft];
+
+
+    .img{
+        @apply w-full md:w-[45%] h-full rounded-xl;
+    }
+    .text_column{
+        @apply w-full md:w-[45%] flex flex-col items-start justify-center gap-5 text-[14px] md:text-[16px];
+
+        span{
+            @apply text-[1.5rem] md:text-[2.5rem] font-bold text-[--primary];
+        }
+
+    }
+}

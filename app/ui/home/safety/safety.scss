@@ -1,0 +1,23 @@
+.safety_container{
+    @apply px-3 md:px-64 py-10 md:py-32 flex flex-col justify-center items-center text-[14px] md:text-[16px] text-center;
+
+    span{
+        @apply text-[1.5rem] md:text-[2.5rem] font-bold;
+    }
+
+    .gridbox{
+        @apply grid grid-cols-1 gap-20 md:grid-cols-5 w-full my-20 ;
+
+        .item{
+            @apply flex flex-col items-center justify-between;
+
+            p{
+                @apply text-[12px] w-[200px] text-center;
+            }
+
+            .img{
+                @apply w-16 max-h-12  mb-2 flex items-center pb-10;
+            }
+        }
+    }
+}

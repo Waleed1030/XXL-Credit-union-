@@ -1,0 +1,138 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px 0px;
+}
+
+.box{
+    background: var(--bg);
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.title{
+    color: var(--primary);
+    font-size: 32px;
+    padding: 32px 0px;
+}
+
+
+
+.referrals{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; 
+    overflow: scroll;
+}
+
+.headtext{ 
+    width: 100%;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.headtext span{
+    color: var(--primary);
+    font-size: 16px;
+}
+
+.table{
+    width: 100%;
+    margin: 32px 0px;
+}
+
+
+.table td{
+    padding: 8px;
+    border-bottom: 1px solid var(--secondary);
+}
+
+.table thead td{
+    background: var(--bgSoft);
+}
+
+.user{
+    display: flex;
+    align-items: center;
+    gap: 3px;
+}
+
+
+.userImage{
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--accent);
+    border: 2px solid var(--bgSoft);
+}
+
+.add_btn{
+    padding: 8px 10px;
+    color: white;
+    background: var(--accent);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.add_btn:hover{
+    background: var(--hover);
+}
+
+.actions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+}
+
+.view{
+    padding: 5px;
+    color: white;
+    background: var(--accent);
+    border-radius: 10px;
+    cursor: pointer;
+    width: 60px;
+}
+
+
+
+.view:hover{
+    background: var(--hover);
+}
+
+.delete{
+    padding: 5px;
+    color: white;
+    background: var(--red);
+    border-radius: 10px;
+    cursor: pointer;
+    width: 60px;
+}
+
+.delete:hover{
+    background: var(--orange);
+}
+
+/*------   Media Queries --------*/
+
+@media only screen and (max-width: 600px) {
+    .table td{
+        font-size: 12px;
+    }
+}

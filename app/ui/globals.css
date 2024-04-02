@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #ffff;
+  --bgSoft: #f5f5f5;
+  --primary: #151b1f;
+  --secondary: #dfe7ff;
+  --accent: #2962ff;
+  --text: #374148;
+  --hover: #1c43ae;
+
+  --green: #22b34a;
+  --blue: #006ce4;
+  --orange: #f07909;
+  --red: #e55252;
+  --backdrop: #dfe7ff13;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/*Tailwind Classes*/
+
+.primary_btn {
+  @apply px-6 py-2 text-[12px] md:text-[16px] md:py-3 bg-[--accent] text-white font-bold rounded-xl hover:bg-[--hover] cursor-pointer transition-all max-h-14;
+}
+
+.secondary_btn {
+  @apply flex justify-center items-center border border-[--accent] text-[--accent] rounded-xl py-2 text-[12px] md:text-[16px] font-bold md:py-3 px-6 max-h-14 hover:bg-[--secondary] cursor-pointer transition-all;
+}

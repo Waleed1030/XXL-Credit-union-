@@ -1,0 +1,28 @@
+.container{
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    width: 100%;
+}
+
+.btn{
+    padding: 5px 10px;
+    width: 70px;
+    cursor: pointer;
+    font-size: 12px;
+    border-radius: 8px;
+    background: var(--secondary);
+    transition: all .3s ease-in-out;
+    
+}
+
+.btn:hover{
+    background: var(--hover);
+    color: white;
+}
+
+.btn:disabled{
+    cursor: not-allowed;
+    
+}

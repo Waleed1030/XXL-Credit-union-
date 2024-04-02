@@ -1,0 +1,51 @@
+.container{
+    min-height: 100vh;
+}
+
+.menu{
+    background: var(--bg);
+}
+
+
+.content{
+    background: var(--bgSoft);
+    min-height: 100vh;
+    padding: 16px;
+
+}
+
+.coinprice{
+    overflow: hidden;
+    width: 100%;
+}
+
+/* Media Query*/
+@media only screen and (min-width: 768px) {
+
+    .container{
+        display: flex;
+        min-height: 100vh;
+    }
+    
+    .content{
+        flex:5;
+        background: var(--bgSoft);
+        padding: 16px;
+    }
+
+    .menu{
+        flex:1;
+        background: var(--bgSoft);
+
+    }
+
+    
+}
+
+@media only screen and (max-width: 600px){
+    .mediaquery{
+        display: none;
+    }
+
+   
+}

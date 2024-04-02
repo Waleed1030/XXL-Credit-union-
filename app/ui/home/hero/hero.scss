@@ -1,0 +1,129 @@
+.hero_container{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 100%;
+    overflow: hidden;
+
+
+    text-align: left;
+    color: var(--primary);
+    background-image: url(../../../../public/bg.png);
+    background-repeat: repeat;
+    background-color: #dfe7ffac;
+    background-size: cover;
+
+    @media only screen and (max-width: 600px) {
+      flex-direction: column;
+      padding: 120px 16px;
+    }
+
+
+    span{
+        font-size: 2.5rem;
+        font-weight: 600;
+
+        @media only screen and (max-width: 600px) {
+          font-size: 1.5rem;
+        }
+    }
+
+    .hero_text{
+        width: 45%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        margin-bottom: 100px;
+
+        @media only screen and (max-width: 600px) {
+          width: 100%;
+        }
+
+        
+
+        .btn{
+            margin-top: 32px;
+            padding: 8px 8px 8px 16px;
+            background: var(--accent);
+            color: white;
+            border-radius: 32px;
+            font-weight: 600;
+
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            &:hover{
+                background: var(--hover);
+            }
+
+            .arrow{
+                display: flex;
+                align-items: center;
+                padding: 10px;
+                background: white;
+                color: var(--accent);
+                border-radius: 50%;
+            }
+ 
+        }
+        .tagline{
+            font-size: 16px;
+            font-weight: 400;
+            color: var(--text);
+            width: 600px;
+            padding-top: 32px;
+
+            @media only screen and (max-width: 600px){
+              width: 100%;
+              font-size: 14px;
+            }
+        }
+    }
+
+    .artbox {
+        width: 50%;
+        display: grid;
+        grid-template-columns: repeat(5, 100px);
+        place-items: center;
+        gap: 20px;
+      }
+      
+      .circle{
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        margin-bottom: 10px;
+      }
+      
+      .cylinder{
+        width: 100px;
+        height: 200px;
+        border-radius: 50px;
+        margin-bottom: 10px;
+
+      }
+      
+      .design-container img {
+        width: 150px;
+        height: 200px;
+        cursor: pointer;
+        margin-bottom: 10px;
+        border-radius: 50px;
+        object-fit: cover;
+        transition: 0.5s all;
+      
+      }
+      
+}
+
+
+/*----------- Media Queries -----------*/
+
+@media only screen and (max-width: 600px) {
+  .hero_container{
+    padding-top: 160px;
+  }
+}

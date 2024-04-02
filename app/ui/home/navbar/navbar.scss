@@ -1,0 +1,52 @@
+.nav-container{
+    @apply flex justify-between items-center bg-[--bg] w-full p-1 md:py-3 md:px-64 fixed z-10 top-0 max-h-16;
+
+    .logo{
+        color: var(--accent);
+        font-size: 30px;
+
+        &:hover{
+            color: var(--hover);
+            transform: ease all .3s;
+        }
+    }
+
+    .icon{
+        color: var(--accent);
+
+        &:hover{
+            color: var(--hover);
+            transform: ease all .3s;
+        }
+        font-size: 30px;
+    }
+
+    .nav-list{
+        @apply flex gap-10 text-[--accent] font-thin;
+
+        li{
+            font-size: 16px;
+            cursor: pointer;
+            &:hover{
+                transform: ease all .3s;
+                color: var(--hover);
+            }
+        }
+    }
+
+
+    .cta{
+        @apply flex gap-10 items-center;
+
+        p{
+            font-size: 18px;
+            color: var(--accent);
+            cursor: pointer;
+
+            &:hover{
+                transform: ease all .3s;
+                color: var(--hover);
+            }
+        }
+    }
+}

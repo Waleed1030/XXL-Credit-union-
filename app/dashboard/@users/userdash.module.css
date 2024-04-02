@@ -1,0 +1,163 @@
+.container{
+    width: 100%;
+    background: var(--bgSoft);
+}
+.title{
+    color: var(--primary);
+    font-size: 20px;
+}
+
+.topbar{
+    width: 100%;
+    padding: 16px;
+}
+
+
+.firstrow{
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    width: 100%;
+    gap: 32px;
+}
+
+.balances{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 32px;
+
+}
+
+.accountdetails{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 20px;
+    width: 100%;
+
+    background: var(--bg) ;
+    border-radius: 10px;
+    gap: 24px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    width: 100%;
+    border-radius: 5px;
+
+    font-size: 14px;
+    color: var(--text);
+}
+
+
+.card{
+    background: var(--bg);
+    width: 350px;
+    height: 120px;
+    border-radius: 10px;
+   
+
+    padding: 20px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.amount{
+    color:var(--primary);
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.textbox{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.icon{
+    color:var(--accent);
+    margin-top: 10px;
+}
+
+
+.span{
+    color: var(--primary);
+}
+
+
+.thirdrow{
+    margin-top: 64px; 
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+
+.table{
+    width: 100%;
+    background: var(--bg);
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 32px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+    overflow: scroll;
+}
+
+
+.table td{
+    padding: 16px;
+    
+}
+
+.table tbody{
+    background: var(--bgSoft);
+    border-radius: 10px;
+    width: 100%;
+}
+
+/*----------- Media Queries -----------*/
+
+@media only screen and (max-width: 600px){
+
+    .topbar{
+        padding-left: 0;
+    }
+    .firstrow{
+        flex-direction: column;
+    }
+
+    .card{
+        height: 100px;
+        padding: 16px;
+    }
+
+    .amount{
+        font-size: 16px;
+        font-weight: 600;
+        color: var(--accent);
+    }
+
+    .accountdetails{
+        padding: 16px;
+    }
+
+    .item{
+        padding: 5px;
+    }
+
+
+    .table td{
+        padding: 5px;
+        font-size: 12px;
+        
+    }
+}

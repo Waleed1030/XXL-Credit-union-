@@ -1,0 +1,33 @@
+.debit_btn{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 12px 32px;
+    background: var(--red);
+    color: white;
+    border-radius: 10px;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px,rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.debit_btn:hover{
+    background: var(--orange);
+}
+
+.item{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.item input{
+    width: 100%;
+    padding: 8px;
+    border-radius: 8px;
+    border: 1px solid var(--accent);
+    outline: none;
+}
+
+.item input:focus{
+    border: 2px solid var(--secondary);
+}

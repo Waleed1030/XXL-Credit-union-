@@ -1,0 +1,94 @@
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    padding: 10px 0px;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.title{
+    color: var(--primary);
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+.inputbox{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: var(--bg);
+    border-radius: 10px;
+    width: 100%;
+}
+
+.flexItem input{
+    padding: 5px;
+    outline: none;
+    text-align: right;
+    border-radius: 5px;
+    width: 60%;
+    border: 1px var(--secondary) solid;
+}
+
+.amount input{
+    padding: 5px;
+    outline: none;
+    text-align: right;
+    border-radius: 5px;
+    width: 100%;
+    border: 1px var(--secondary) solid;
+}
+
+.flexItem,.amount input:focus{
+    border: solid var(--accent) 1px;
+}
+
+.amount{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.currency{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    
+}
+
+.coinImg{
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    background: var(--orange);
+}
+
+
+
+.wallet{
+    color: var(--primary);
+    padding-top: 20px;
+    font-size: 12px;
+}
+
+.flexBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.flexItem{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary);
+    font-weight: bold;
+    font-size: 12px;
+    width: 100%;
+    padding: 10px;
+    border: 1px var(--secondary) solid;
+}

@@ -1,0 +1,148 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    padding: 20px 0px;
+}
+
+.box{
+    background: var(--bg);
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.06) 0px 2px 4px -1px;
+}
+
+.title{
+    color: var(--primary);
+    font-size: 32px;
+    padding: 32px 0px;
+}
+
+
+
+.referrals{
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start; 
+    overflow: scroll;
+}
+
+.headtext{ 
+    width: 100%;  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+}
+
+.headtext span{
+    color: var(--primary);
+    font-size: 20px;
+}
+
+.table{
+    width: 100%;
+    margin-top: 32px;
+}
+
+
+.table td{
+    padding: 8px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+
+
+.user{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+
+.userImage{
+    border-radius: 50%;
+    object-fit: cover;
+    background: var(--accent);
+    border: 2px solid var(--bgSoft);
+}
+
+.add_btn{
+    padding: 10px;
+    color: white;
+    background: var(--accent);
+    border-radius: 10px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.add_btn:hover{
+    background: var(--hover);
+}
+
+.actions{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0px;
+    gap: 10px;
+    font-size: 12px;
+}
+
+.view{
+    padding: 8px;
+    color: white;
+    background: var(--accent);
+    border-radius: 5px;
+    cursor: pointer;
+    width: 80px;
+}
+
+
+
+.view:hover{
+    background: var(--hover);
+}
+
+.delete{
+    padding: 8px;
+    color: white;
+    background: var(--red);
+    border-radius: 5px;
+    cursor: pointer;
+    width: 80px;
+}
+
+.delete:hover{
+    background: var(--orange);
+}
+
+
+/*----------- Media Queries -----------*/
+
+@media only screen and (max-width: 600px) {
+    .title{
+        padding: 20px 0px;
+    }
+
+    .headtext span{
+        font-size: 16px;
+    }
+
+    .table td{
+        font-size: 12px;
+    }
+}
