@@ -7,7 +7,7 @@ const cabin = Cabin({ subsets: ['latin'] });
 const ms = M_PLUS_1({ subsets: ['latin'] });
 
 export const metadata = {
-  title: 'Apex Financial',
+  title: 'Blue Phoenix Bank',
   description: '',
 }
 
