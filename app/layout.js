@@ -16,11 +16,10 @@ export default function RootLayout({ children }) {
   return (
     <>
     <html lang="en">
-    <Script src="//code.tidio.co/kuktzqesnhuiucdqtraxzhlwgtbkotbd.js" async>
+    <Script src="//code.tidio.co/kuktzqesnhuiucdqtraxzhlwgtbkotbd.js" async/>
       <body className={cabin.className}>
         <EdgeStoreProvider>{children}</EdgeStoreProvider>
       </body>
-    </Script>
     </html>
     </>
   )
