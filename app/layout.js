@@ -6,7 +6,7 @@ import Script from "next/script";
 const cabin = Cabin({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Apex Financial",
+  title: "Blue Pheonix Bank",
   description: "",
 };
 

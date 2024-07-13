@@ -43,7 +43,9 @@ const Login = () => {
             <a href="#">Forgot Password?</a>
           </div>
 
-          <button className="btn" aria-disabled={pending}>Login</button>
+          <button className="btn" aria-disabled={pending}>
+            Login
+          </button>
         </form>
 
         <div className="sign_up">
@@ -51,7 +53,7 @@ const Login = () => {
           <a href="/signup">Sign Up</a>
         </div>
 
-        <p>© Copyright 2024 Apex Financial All Rights Reserved.</p>
+        <p>© Copyright 2024 Blue Phoenix Bank All Rights Reserved.</p>
       </div>
     </div>
   );
