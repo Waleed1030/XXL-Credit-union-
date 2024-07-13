@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 
@@ -21,14 +21,26 @@ const Contact = () => {
   };
 
   return (
-    <div className="px-5 py-10 bg-[--bg] flex items-center flex-1 w-full flex-col " id="contact">
-      <h2 className="text-[1.5rem] md:text-[2.5rem] text-[--primary] font-bold">Reach Out To Us</h2>
+    <div
+      className="px-5 py-10 bg-[--bg] flex items-center flex-1 w-full flex-col "
+      id="contact"
+    >
+      <h2 className="text-[1.5rem] md:text-[2.5rem] text-[--primary] font-bold">
+        Reach Out To Us
+      </h2>
 
       <div className="w-full md:w-[60%] flex justify-evenly items-center flex-wrap m-[2em]">
         <div className="hover:shadow-lg md:w-[350px] w-full flex justify-start items-center my-4 p-4 rounded-xl cursor-pointer bg-[#fef4f5] transition-all duration-300 ease-in-out">
-          <img src="/email.png" alt="email" className="w-[40px] h-[40px] mx-3" />
-          <a href="mailto:support@apexfinancial.com" className=" text-[12px] md:text-[16px]">
-            support@apexfinancial.com
+          <img
+            src="/email.png"
+            alt="email"
+            className="w-[40px] h-[40px] mx-3"
+          />
+          <a
+            href="mailto:support@bluephoenixbank.com"
+            className=" text-[12px] md:text-[16px]"
+          >
+            support@bluephoenixbank.com
           </a>
         </div>
       </div>
@@ -68,7 +80,9 @@ const Contact = () => {
         </form>
       ) : (
         <div>
-          <h3 className="text-[1.5rem] md:text-[2.5rem]">Thank you for getting in touch.</h3>
+          <h3 className="text-[1.5rem] md:text-[2.5rem]">
+            Thank you for getting in touch.
+          </h3>
           <h3 className="text-[1.5rem] md:text-[2.5rem]">
             <span>I'll be with you very soon!</span>
           </h3>

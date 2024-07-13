@@ -86,7 +86,9 @@ const Service = () => {
         <div className="text_column">
           <span>Easily integrate with services you already use</span>
 
-          <p>Apex Financial links with payment gateways and online stores.</p>
+          <p>
+            Blue Pheonix Bank links with payment gateways and online stores.
+          </p>
 
           <p>
             We also work with the most trusted payroll solutions on the market.
