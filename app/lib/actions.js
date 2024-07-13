@@ -168,7 +168,9 @@ export const updateUser = async (formData) => {
     canTransfer,
     withdraw_method,
     t_balance,
-    a_balance
+    a_balance,
+    isActive,
+    isVerified
   } = Object.fromEntries(formData);
 
   try {
@@ -197,7 +199,9 @@ export const updateUser = async (formData) => {
       canTransfer,
       withdraw_method,
       t_balance,
-      a_balance
+      a_balance,
+      isActive,
+      isVerified
     };
 
     Object.keys(updateFields).forEach(

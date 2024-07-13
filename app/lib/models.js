@@ -90,11 +90,11 @@ const userSchema = new mongoose.Schema(
     },
     isActive: {
       type: String,
-      default: "false",
+      default: "yes",
     },
     isVerified: {
       type: String,
-      default: "false",
+      default: "yes",
     },
   },
   { timestamps: true }

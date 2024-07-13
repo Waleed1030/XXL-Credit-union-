@@ -342,7 +342,7 @@ const SignUp = () => {
             <a href='login'>Login</a>
           </div>
 
-            <p>© Copyright 2024 Blue Phoenix Bank All Rights Reserved.</p>
+            <p>© Copyright 2024 Apex Financial All Rights Reserved.</p>
         </div>
     </div>
   )

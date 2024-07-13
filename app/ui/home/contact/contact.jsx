@@ -27,8 +27,8 @@ const Contact = () => {
       <div className="w-full md:w-[60%] flex justify-evenly items-center flex-wrap m-[2em]">
         <div className="hover:shadow-lg md:w-[350px] w-full flex justify-start items-center my-4 p-4 rounded-xl cursor-pointer bg-[#fef4f5] transition-all duration-300 ease-in-out">
           <img src="/email.png" alt="email" className="w-[40px] h-[40px] mx-3" />
-          <a href="mailto:support@bluephoenix.com" className=" text-[12px] md:text-[16px]">
-            support@bluephoenix.com
+          <a href="mailto:support@apexfinancial.com" className=" text-[12px] md:text-[16px]">
+            support@apexfinancial.com
           </a>
         </div>
       </div>
@@ -70,7 +70,7 @@ const Contact = () => {
         <div>
           <h3 className="text-[1.5rem] md:text-[2.5rem]">Thank you for getting in touch.</h3>
           <h3 className="text-[1.5rem] md:text-[2.5rem]">
-            <span>We'll be with you very soon!</span>
+            <span>I'll be with you very soon!</span>
           </h3>
         </div>
       )}

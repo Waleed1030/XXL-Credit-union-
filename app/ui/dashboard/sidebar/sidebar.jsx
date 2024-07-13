@@ -151,11 +151,11 @@ const Sidebar = async () => {
           <div>Logout</div>
         </button>
       </form>
+    </div>
 
     <div className={styles.mobilemenu}>
       <MobileMenu session={session}/>
       <Navbar/>
-    </div>
     </div>
 
     </>

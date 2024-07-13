@@ -3,7 +3,7 @@ import CredentialsProvider from "next-auth/providers/credentials"
 import { authConfig } from "./authconfig"
 import { connectDB } from "@/app/lib/utils";
 import { User } from "@/app/lib/models";
-import bcrypt from 'bcryptjs' 
+import bcrypt from 'bcryptjs'
 
 const login = async (credentials) => {
  try {
@@ -54,6 +54,7 @@ export const { signIn, signOut, auth } = NextAuth({
             token.lastname = user.lastname;
             token.role = user.role;
             token.img = user.img;
+            token.isActive = user.isActive;
         }
         return token;
         },
@@ -64,6 +65,7 @@ export const { signIn, signOut, auth } = NextAuth({
             session.user.lastname = token.lastname;
             session.user.role = token.role
             session.user.img = token.img
+            session.isActive = token.isActive
         }
         return session;
         },

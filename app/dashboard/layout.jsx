@@ -8,10 +8,12 @@ import { Suspense } from 'react'
 import LoadingCard from '@/app/ui/loading/loadingCard'
 
 
+
 const Main = async ({ admins, users }) => {
 
 
 const session = await auth();
+//console.log("this is session:", session);
 
     return (
       <div className={styles.container}>
@@ -26,7 +28,7 @@ const session = await auth();
               
               
               <div className='relative'>
-              <Suspense fallback={<LoadingCard/>}>{session.user.role === "admin" ? admins : users }</Suspense>
+              <Suspense fallback={<LoadingCard/>}>{session.user.role === "admin" ? admins : users  }</Suspense>
               <Footer/>
               </div>
           </div>

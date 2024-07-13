@@ -8,7 +8,7 @@ const Footer = () => {
     <div className='footer_container'>
       <footer>
         <div className='company'>
-          <span>Blue Phoenix Bank</span>
+          <span>Apex Financial Service Bank</span>
           <p>All in one business banking for whatever your need might be.</p>
           <div className='icons'></div>
         </div>
@@ -30,12 +30,12 @@ const Footer = () => {
           </div>
           <div className='email'>
             <MdEmail/>
-            <p>support@bluephoenix.com</p>
+            <p>support@apexfinancial.com</p>
           </div>
         </div>
       </footer>
       <div className='copyright'>
-          <p>© 2024 Blue Phoenix Bank All rights reserved.</p>
+          <p>© 2024 Apex Financial All rights reserved.</p>
       </div>
     </div>
   )

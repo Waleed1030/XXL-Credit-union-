@@ -1,26 +1,34 @@
-import { EdgeStoreProvider } from './lib/edgestore'
-import { Cabin, M_PLUS_1 } from 'next/font/google'
-import './ui/globals.css'
-import Script from 'next/script'
+import { EdgeStoreProvider } from "./lib/edgestore";
+import { Cabin, M_PLUS_1 } from "next/font/google";
+import "./ui/globals.css";
+import Script from "next/script";
 
-
-const cabin = Cabin({ subsets: ['latin'] });
-const ms = M_PLUS_1({ subsets: ['latin'] });
+const cabin = Cabin({ subsets: ["latin"] });
 
 export const metadata = {
-  title: 'Blue Phoenix Bank',
-  description: '',
-}
+  title: "Apex Financial",
+  description: "",
+};
 
 export default function RootLayout({ children }) {
   return (
     <>
-    <html lang="en">
-    <Script src="//code.tidio.co/kuktzqesnhuiucdqtraxzhlwgtbkotbd.js" async/>
-      <body className={cabin.className}>
-        <EdgeStoreProvider>{children}</EdgeStoreProvider>
-      </body>
-    </html>
+      <html lang="en">
+        <Script type="text/javascript">
+          {`
+      var _smartsupp = _smartsupp || {};
+      _smartsupp.key = '';
+      window.smartsupp||(function(d) {
+        var s,c,o=smartsupp=function(){ o._.push(arguments)};o._=[];
+        s=d.getElementsByTagName('script')[0];c=d.createElement('script');
+        c.type='text/javascript';c.charset='utf-8';c.async=true;
+        c.src='https://www.smartsuppchat.com/loader.js?';s.parentNode.insertBefore(c,s);
+      })(document);`}
+        </Script>
+        <body className={cabin.className}>
+          <EdgeStoreProvider>{children}</EdgeStoreProvider>
+        </body>
+      </html>
     </>
-  )
+  );
 }

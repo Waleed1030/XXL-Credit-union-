@@ -56,14 +56,8 @@ const GeneralInfo = async ({user}) => {
             <label>Routing Number</label>
             <input type="text"  name='routing_number' placeholder={user.routing_no}/>
           </div>
-          <div className='item'>
-            <label>IMF</label>
-            <input type="text"  name='imf' placeholder={user.imf}/>
-          </div>
-          <div className='item'>
-            <label>COT</label>
-            <input type="text"  name='cot' placeholder={user.cot}/>
-          </div>
+         
+          
           <div className='item'>
             <label>Tax Id</label>
             <input type="text"  name='tax' placeholder={user.tax}/>

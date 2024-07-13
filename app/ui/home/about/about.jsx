@@ -14,7 +14,7 @@ const About = () => {
         <div className='main_text'>
           <p>ABOUT US</p>
             <span>We are here to manage your finance with experience.</span>
-            <p>Blue Phoenix Bank was designed for those who demand banking that's dramatically better than what they’ve experienced in the past. Our innovative methods and products keep pace with your life and your business.</p>
+            <p>Apex Financial was designed for those who demand banking that's dramatically better than what they’ve experienced in the past. Our innovative methods and products keep pace with your life and your business.</p>
 
             <p>Our hyper-focused associates respond with the resources you need anytime you reach a review point you’ll end up reviewing and negotiating the content itself and not the design</p>
 

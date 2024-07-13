@@ -58,6 +58,16 @@ const SingleUserPage = async ({ params }) => {
           </div>
 
           <div className={styles.item}>
+            <label>is Active?:</label>
+            <input type="text" name="isActive" placeholder={user.isActive} />
+          </div>
+
+          <div className={styles.item}>
+            <label>is Verified?:</label>
+            <input type="text" name="isVerified" placeholder={user.isVerified} />
+          </div>
+
+          <div className={styles.item}>
             <label>Gender</label>
           <select name="sex" >
             <option value={user.sex}> {user.sex}</option>
@@ -113,24 +123,6 @@ const SingleUserPage = async ({ params }) => {
             <select name="role" id="role">
               <option value="client" >Client</option>
               <option value="admin" >Admin</option>
-            </select>
-          </div>
-
-          <div className={styles.item}>
-            <label>Is Active?</label>
-            <select name="isActive" id="isActive">
-              <option value={user.isActive}>{user.isActive}</option>
-              <option value={true} >Yes</option>
-              <option value={false}>No</option>
-            </select>
-          </div>
-
-          <div className={styles.item}>
-            <label>Is Verified?</label>
-            <select name="isVerified" id="isVerified">
-              <option value={user.isVerified} >{user.isVerified}</option>
-              <option value={true}>Yes</option>
-              <option value={false}>No</option>
             </select>
           </div>
 

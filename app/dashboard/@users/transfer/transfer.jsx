@@ -5,7 +5,7 @@ import { useFormState } from "react-dom";
 import styles from "./transfer.module.css";
 import LocalTransfer from "./local/page";
 import InternationalTransfer from "./international/page";
-import { PinModal, SuccessModal, FailedModal, BothModal } from "@/app/ui/dashboard/modals/modals";
+import { PinModal, COTModal, SuccessModal, FailedModal, BothModal } from "@/app/ui/dashboard/modals/modals";
 
 import { BiTransferAlt } from "react-icons/bi";
 import { GrLineChart } from "react-icons/gr";
@@ -69,9 +69,9 @@ const Transfer = ({ children, username, wmethod }) => {
               <LocalTransfer />
             ) : null}
             
-            {verify === "pin" ?  <PinModal wmethod={wmethod} state={state}/> :
-             verify ==="cot" ? <PinModal wmethod={wmethod}  state={state} />  :
-             verify === "both" ? <BothModal wmethod={wmethod}  state={state}/> :  null}
+            {verify === "pin" ?  <PinModal state={state}/> :
+             verify ==="cot" ? <COTModal  state={state} />  :
+             verify === "both" ? <BothModal state={state}/> :  null}
 
 
             {state === "success" ? (
@@ -82,7 +82,7 @@ const Transfer = ({ children, username, wmethod }) => {
               ( <FailedModal /> ) :  null}
           </div>
 
-          <div className={styles.btn} >Proceed</div>
+          <div className={styles.btn} onClick={() => setVerify(wmethod)}>Proceed</div>
         </form>
       </div>
     </div>

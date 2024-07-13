@@ -31,7 +31,7 @@ export const fetchUserData = async (username) => {
     try {
         connectDB();
         const user = await User.findOne({username: { $regex:regex }});
-        const history = await Transaction.find({ username: id}).exec(); 
+        const history = await Transaction.find({ username: id}).sort({createdAt: 'desc'}).exec(); 
         const userCard = await Cards.findOne({ username: id});
 
         return {user, history, userCard}
@@ -88,7 +88,7 @@ export const fetchTransactions = async (q, page) => {
     try {
         connectDB();
         const count = await Transaction.find( {username: { $regex:regex }}).count();
-        const transactions = await Transaction.find( {username: { $regex:regex }}).limit(ITEM_PER_PAGE).skip(ITEM_PER_PAGE * (page -1));
+        const transactions = await Transaction.find( {username: { $regex:regex }}).sort({createdAt: 'desc'}).limit(ITEM_PER_PAGE).skip(ITEM_PER_PAGE * (page -1));
         return {count, transactions};
 
     } catch (error) {
