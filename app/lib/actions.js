@@ -7,16 +7,232 @@ import { revalidatePath } from "next/cache";
 import { signIn, signOut } from "@/app/api/auth/[...nextauth]/auth";
 import bcrypt from "bcryptjs";
 
-
 //Logout Function
 export const logout = async () => {
-
   await signOut();
-  
+
   redirect("/login");
-}
+};
 
+/* ====   USER ACTIONS   ==== */
 
+//Login Function
+export const authenticate = async (prevState, formData) => {
+  const { username, password } = Object.fromEntries(formData);
+
+  try {
+    await signIn("credentials", { username, password });
+  } catch (error) {
+    if (error.message.includes("CredentialsSignin")) {
+      return "Username or Password Incorrect!";
+    }
+  }
+  redirect("/dashboard");
+};
+
+//Deposit Function
+export const deposit = async (formData) => {
+  const {
+    username,
+    amount,
+    depositType,
+    type,
+    status,
+    network,
+    address,
+    currency,
+    email,
+  } = Object.fromEntries(formData);
+
+  try {
+    connectDB();
+    const newTransaction = new Transaction({
+      username,
+      amount,
+      depositType,
+      type,
+      status,
+      network,
+      address,
+      currency,
+      email,
+    });
+
+    await newTransaction.save();
+  } catch (error) {
+    console.log(error);
+  }
+  revalidatePath("/dashboard/transactions/");
+  revalidatePath("/dashboard/");
+  redirect("/dashboard");
+};
+
+//Generate Card Function
+export const createCard = async (formData) => {
+  const { number, username, expiry, cvc, name } = Object.fromEntries(formData);
+
+  try {
+    connectDB();
+    const newCard = new Cards({
+      number,
+      expiry,
+      cvc,
+      username,
+      name,
+    });
+    // console.log(newCard)
+
+    await newCard.save();
+    console.log("Card generation successful");
+  } catch (error) {
+    console.log(error);
+  }
+  revalidatePath("/dashboard/cards/");
+  revalidatePath("/dashboard/");
+  redirect("/dashboard");
+};
+
+///Transfer Function
+export const transfer = async (prevState, formData) => {
+  const {
+    username,
+    pin,
+    cot,
+    amount,
+    account_name,
+    account_number,
+    routing_number,
+    bank_name,
+    swift,
+    remarks,
+    type,
+    status,
+  } = Object.fromEntries(formData);
+
+  const regex = new RegExp(username, "i");
+
+  try {
+    const newTransfer = new Transaction({
+      username,
+      amount,
+      account_name,
+      account_number,
+      routing_number,
+      bank_name,
+      swift,
+      remarks,
+      type,
+      status,
+    });
+
+    connectDB();
+    const user = await User.findOne({ username: { $regex: regex } });
+    const newBalance = Number(user.a_balance) - Number(amount);
+
+    if (pin === user.pin || cot === user.cot) {
+      if (amount < user.a_balance) {
+        await User.findOneAndUpdate(
+          { username: { $regex: regex } },
+          { a_balance: Number(newBalance), t_balance: Number(newBalance) }
+        );
+
+        if (user.canTransfer === "yes") {
+          await newTransfer.save();
+          return "success";
+        } else {
+          return "not-allowed";
+        }
+      } else {
+        return "failed";
+      }
+    } else {
+      return "The PIN/COT you entered was Incorrect!";
+    }
+  } catch (error) {
+    console.log(error);
+  }
+  revalidatePath("/dashboard/transactions");
+  revalidatePath("/dashboard/");
+};
+
+//Update User Settings
+export const updateUserSettings = async (formData) => {
+  const {
+    id,
+    img,
+    password,
+    currency,
+    firstname,
+    lastname,
+    username,
+    phone,
+    email,
+    dob,
+    sex,
+    routing_number,
+    imf,
+    cot,
+    tax,
+    occupation,
+    address,
+    pin,
+  } = Object.fromEntries(formData);
+
+  try {
+    connectDB();
+    const updateFields = {
+      id,
+      img,
+      password,
+      currency,
+      firstname,
+      lastname,
+      username,
+      phone,
+      email,
+      dob,
+      sex,
+      routing_number,
+      imf,
+      cot,
+      tax,
+      occupation,
+      address,
+      pin,
+    };
+
+    Object.keys(updateFields).forEach(
+      (key) =>
+        (updateFields[key] === "" || undefined) && delete updateFields[key]
+    );
+    console.log(updateFields);
+
+    await User.findByIdAndUpdate(id, updateFields);
+  } catch (error) {
+    console.log(error);
+    throw new Error(error);
+  }
+
+  revalidatePath("/dashboard/settings");
+  redirect("/dashboard/");
+};
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* ====   ADMIN ACTIONS   ==== */
 
@@ -43,7 +259,7 @@ export const addUser = async (formData) => {
     canTransfer,
     withdraw_method,
     t_balance,
-    a_balance
+    a_balance,
   } = Object.fromEntries(formData);
 
   const randomNumber = (min, max) => {
@@ -56,8 +272,8 @@ export const addUser = async (formData) => {
 
   try {
     connectDB();
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    // const salt = await bcrypt.genSalt(10);
+    // const hashedPassword = await bcrypt.hash(password, salt);
     const account_number = randomNumber(7000000000, 9906459999);
 
     const newUser = new User({
@@ -69,7 +285,7 @@ export const addUser = async (formData) => {
       sex,
       country,
       currency,
-      password: hashedPassword,
+      password,
       account_number,
       account_type,
       imf,
@@ -82,7 +298,7 @@ export const addUser = async (formData) => {
       withdraw_method,
       canTransfer,
       t_balance,
-      a_balance
+      a_balance,
     });
 
     await newUser.save();
@@ -170,13 +386,13 @@ export const updateUser = async (formData) => {
     t_balance,
     a_balance,
     isActive,
-    isVerified
+    isVerified,
   } = Object.fromEntries(formData);
 
   try {
     connectDB();
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(password, salt);
+    // const salt = await bcrypt.genSalt(10);
+    // const hashedPassword = await bcrypt.hash(password, salt);
 
     const updateFields = {
       username,
@@ -187,7 +403,7 @@ export const updateUser = async (formData) => {
       sex,
       country,
       currency,
-      password: hashedPassword,
+      password,
       account_number,
       account_type,
       imf,
@@ -201,7 +417,7 @@ export const updateUser = async (formData) => {
       t_balance,
       a_balance,
       isActive,
-      isVerified
+      isVerified,
     };
 
     Object.keys(updateFields).forEach(
@@ -390,9 +606,8 @@ export const creditUser = async (prevState, formData) => {
     );
 
     const updateduser = await User.findOne({ username: { $regex: regex } });
-    return "successful"
+    return "successful";
     //console.log("user after:", updateduser);
-
   } catch (error) {
     throw new Error(error);
   } finally {
@@ -431,8 +646,8 @@ export const debitUser = async (prevState, formData) => {
     );
 
     const updateduser = await User.findOne({ username: { $regex: regex } });
-    return "successful"
-   // console.log("user after:", updateduser);
+    return "successful";
+    // console.log("user after:", updateduser);
   } catch (error) {
     throw new Error(error);
   } finally {
@@ -452,8 +667,6 @@ export const debitUser = async (prevState, formData) => {
   redirect("/dashboard/");
 };
 
-
-
 //Upload Images Function
 export const uploadPhoto = async ({ id, img }) => {
   //console.log('logging id from actions:',id, img)
@@ -462,210 +675,6 @@ export const uploadPhoto = async ({ id, img }) => {
     connectDB();
     await User.findByIdAndUpdate(id, { img: img });
   } catch (error) {
-    throw new Error(error);
-  }
-
-  revalidatePath("/dashboard/settings");
-  redirect("/dashboard/");
-};
-
-/* ====   USER ACTIONS   ==== */
-
-//Login Function
-export const authenticate = async (prevState, formData) => {
-  const { username, password } = Object.fromEntries(formData);
-
-  try {
-    await signIn("credentials", { username, password });
-  } catch (error) {
-    if (error.message.includes("CredentialsSignin")) {
-      return "Password/Username Incorrect!";
-    }
-  }
-  redirect("/dashboard");
-};
-
-//Deposit Function
-export const deposit = async (formData) => {
-  const {
-    username,
-    amount,
-    depositType,
-    type,
-    status,
-    network,
-    address,
-    currency,
-    email,
-  } = Object.fromEntries(formData);
-
-  try {
-    connectDB();
-    const newTransaction = new Transaction({
-      username,
-      amount,
-      depositType,
-      type,
-      status,
-      network,
-      address,
-      currency,
-      email,
-    });
-
-    await newTransaction.save();
-  } catch (error) {
-    console.log(error);
-  }
-  revalidatePath("/dashboard/transactions/");
-  revalidatePath("/dashboard/");
-  redirect("/dashboard");
-};
-
-//Generate Card Function
-export const createCard = async (formData) => {
-  const { number, username, expiry, cvc, name } = Object.fromEntries(formData);
-
-  try {
-    connectDB();
-    const newCard = new Cards({
-      number,
-      expiry,
-      cvc,
-      username,
-      name,
-    });
-    // console.log(newCard)
-
-    await newCard.save();
-    console.log("Card generation successful");
-  } catch (error) {
-    console.log(error);
-  }
-  revalidatePath("/dashboard/cards/");
-  revalidatePath("/dashboard/");
-  redirect("/dashboard");
-};
-
-///Transfer Function
-export const transfer = async (prevState, formData) => {
-  const {
-    username,
-    pin,
-    cot,
-    amount,
-    account_name,
-    account_number,
-    routing_number,
-    bank_name,
-    swift,
-    remarks,
-    type,
-    status,
-  } = Object.fromEntries(formData);
-
-  const regex = new RegExp(username, "i");
-
-  try {
-    const newTransfer = new Transaction({
-      username,
-      amount,
-      account_name,
-      account_number,
-      routing_number,
-      bank_name,
-      swift,
-      remarks,
-      type,
-      status,
-    });
-
-
-    connectDB();
-    const user = await User.findOne({ username: { $regex: regex } });
-    const newBalance = Number(user.a_balance) - Number(amount);
-
-    if( pin === user.pin || cot === user.cot){
-      if(amount < user.a_balance){
-        await User.findOneAndUpdate(
-          { username: { $regex: regex } },
-          { a_balance: Number(newBalance), t_balance: Number(newBalance) });
-          
-          if(user.canTransfer === "yes"){
-            await newTransfer.save();
-            return "success"
-          } else {
-            return "not-allowed"
-          }
-      } else {
-        return "failed"
-      }
-    } else {
-      return "The PIN/COT you entered was Incorrect!"
-    }
-
-  } catch (error) {
-    console.log(error);
-  }
-  revalidatePath("/dashboard/transactions");
-  revalidatePath("/dashboard/");
-};
-
-//Update User Settings
-export const updateUserSettings = async (formData) => {
-  const {
-    id,
-    img,
-    password,
-    currency,
-    firstname,
-    lastname,
-    username,
-    phone,
-    email,
-    dob,
-    sex,
-    routing_number,
-    imf,
-    cot,
-    tax,
-    occupation,
-    address,
-    pin,
-  } = Object.fromEntries(formData);
-
-  try {
-    connectDB();
-    const updateFields = {
-      id,
-      img,
-      password,
-      currency,
-      firstname,
-      lastname,
-      username,
-      phone,
-      email,
-      dob,
-      sex,
-      routing_number,
-      imf,
-      cot,
-      tax,
-      occupation,
-      address,
-      pin,
-    };
-
-    Object.keys(updateFields).forEach(
-      (key) =>
-        (updateFields[key] === "" || undefined) && delete updateFields[key]
-    );
-    console.log(updateFields);
-
-    await User.findByIdAndUpdate(id, updateFields);
-  } catch (error) {
-    console.log(error);
     throw new Error(error);
   }
 
