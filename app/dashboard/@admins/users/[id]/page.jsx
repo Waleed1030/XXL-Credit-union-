@@ -48,11 +48,19 @@ const SingleUserPage = async ({ params }) => {
 
           <div className={styles.item}>
             <label>Withdrawal Method:</label>
-            <input
+            <select
+              id="withdraw_method"
               type="text"
               name="withdraw_method"
               placeholder={user.withdraw_method}
-            />
+            >
+              <option value={user.withdraw_method}>
+                {user.withdraw_method}
+              </option>
+              <option value="cot">COT</option>
+              <option value="pin">PIN</option>
+              <option value="both">Both</option>
+            </select>
           </div>
 
           <div className={styles.item}>
